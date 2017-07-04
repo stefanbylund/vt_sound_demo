@@ -1,0 +1,4 @@
+syntax: glob
+bin/
+zcc_opt.def
+zcc_proj.lst
