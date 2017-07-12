@@ -15,6 +15,7 @@
 #include <string.h>
 #include "vt_sound.h"
 
+#pragma output CRT_ORG_CODE = 0x8190
 #pragma output CLIB_MALLOC_HEAP_SIZE = 0
 
 #define printCls() printf("%c", 12)
@@ -24,14 +25,17 @@ extern uint8_t music_module[];
 
 static void init_isr(void)
 {
-    // Put Z80 in IM2 mode with a 257-byte interrupt vector table located at
-    // address 0xD000 filled with 0xD1 bytes. Install vt_play_isr() as an IM2
-    // interrupt service routine.
+    // Set up IM2 interrupt service routine:
+    // Put Z80 in IM2 mode with a 257-byte interrupt vector table located
+    // at 0x8000 (before CRT_ORG_CODE) filled with 0x81 bytes. Install the
+    // vt_play_isr() interrupt service routine at the interrupt service routine
+    // entry at address 0x8181.
+
     intrinsic_di();
-    im2_init((void *) 0xD000);
-    memset((void *) 0xD000, 0xD1, 257);
-    z80_bpoke(0xD1D1, 0xC3);
-    z80_wpoke(0xD1D2, (uint16_t) vt_play_isr);
+    im2_init((void *) 0x8000);
+    memset((void *) 0x8000, 0x81, 257);
+    z80_bpoke(0x8181, 0xC3);
+    z80_wpoke(0x8182, (uint16_t) vt_play_isr);
     intrinsic_ei();
 }
 
