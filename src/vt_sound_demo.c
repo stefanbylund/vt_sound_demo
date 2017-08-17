@@ -15,7 +15,7 @@
 #include <string.h>
 #include "vt_sound.h"
 
-#pragma output CRT_ORG_CODE = 0x8190
+#pragma output CRT_ORG_CODE = 0x8184
 #pragma output CLIB_MALLOC_HEAP_SIZE = 0
 
 #define printCls() printf("%c", 12)
