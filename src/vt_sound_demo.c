@@ -4,6 +4,10 @@
  * A simple example program for Sinclair ZX Spectrum for demonstrating how
  * to use the Vortex Tracker II player from C to play a PT3 module in the
  * background. See vt_sound.h for more information.
+ *
+ * zcc +zx -vn -SO3 -startup=1 -clib=sdcc_iy --max-allocs-per-node200000
+ *   -L<vt_sound>/lib/sdcc_iy -lvt_sound -I<vt_sound>/include vt_sound_demo.c
+ *   sound.asm -o vt_sound_demo -create-app
  ******************************************************************************/
 
 #include <input.h>
