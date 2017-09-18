@@ -9,6 +9,10 @@ MKDIR := mkdir -p
 
 RM := rm -rf
 
+CP := cp
+
+ZIP := zip -r -q
+
 VT_SOUND := ../vt_sound
 
 VT_SOUND_INCLUDE := $(VT_SOUND)/include
@@ -55,5 +59,18 @@ debug_sdcc_ix: all_sdcc_ix
 
 debug_sdcc_iy: all_sdcc_iy
 
+distro:
+	$(MAKE) clean all
+	$(RM) tmp
+	$(MKDIR) tmp/vt_sound_demo
+	$(CP) bin/sdcc_iy/vt_sound_demo.tap tmp/vt_sound_demo
+	$(CP) src/vt_sound_demo.c tmp/vt_sound_demo
+	$(CP) src/sound.asm tmp/vt_sound_demo
+	$(CP) src/music.pt3 tmp/vt_sound_demo
+	$(CP) readme.txt tmp/vt_sound_demo
+	$(RM) build/vt_sound_demo.zip
+	cd tmp; $(ZIP) ../build/vt_sound_demo.zip vt_sound_demo
+	$(RM) tmp
+
 clean:
-	$(RM) bin zcc_opt.def zcc_proj.lst src/*.lis
+	$(RM) bin tmp zcc_opt.def zcc_proj.lst src/*.lis

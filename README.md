@@ -4,7 +4,25 @@ The **vt_sound_demo** project contains a simple example program demonstrating
 how to use the [vt_sound](https://github.com/stefanbylund/vt_sound) C API for
 the Vortex Tracker II player to play a PT3 module in the background.
 
-## How to Use
+## Download
+
+The latest version of this program can be downloaded [here](build/vt_sound_demo.zip).
+This download contains the following binaries and resources:
+
+* vt_sound_demo/vt_sound_demo.tap
+* vt_sound_demo/vt_sound_demo.c
+* vt_sound_demo/sound.asm
+* vt_sound_demo/music.pt3
+* vt_sound_demo/readme.txt
+
+The included readme.txt file explains how to start the program.
+
+If you want to build the vt_sound_demo program yourself, see the "How to Build"
+section below.
+
+## How to Build
+
+If you want to build the vt_sound_demo program yourself, follow the steps below:
 
 1. On Windows, you need [MinGW](http://www.mingw.org/),
 [UnxUtils](https://sourceforge.net/projects/unxutils/) or
@@ -35,8 +53,9 @@ parent directory.
 Sinclair ZX Spectrum emulator.
 
 **Tip:** If you don't care for makefiles or don't want to install
-MinGW/UnxUtils/Cygwin on Windows, it is quite easy to build vt_sound_demo
-manually by extracting the z88dk command-line invocation in the Makefile.
+MinGW/UnxUtils/Cygwin on Windows, you can build vt_sound_demo manually
+by using the z88dk command-line invocation located in the header of the
+vt_sound_demo.c source file.
 
 ## License
 
