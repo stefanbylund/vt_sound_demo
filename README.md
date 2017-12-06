@@ -6,7 +6,7 @@ the Vortex Tracker II player to play a PT3 module in the background.
 
 ## Download
 
-The latest version of this program can be downloaded [here](build/vt_sound_demo.zip).
+The latest version of this program can be downloaded **[here](build/vt_sound_demo.zip)**.
 This download contains the following binaries and resources:
 
 * vt_sound_demo/vt_sound_demo.tap
