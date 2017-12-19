@@ -21,6 +21,7 @@
 
 #pragma output CRT_ORG_CODE = 0x8184
 #pragma output CLIB_MALLOC_HEAP_SIZE = 0
+#pragma printf = "%c %s"
 
 #define printCls() printf("%c", 12)
 #define printAt(row, col, str) printf("\x16%c%c%s", (col + 1), (row + 1), (str))
